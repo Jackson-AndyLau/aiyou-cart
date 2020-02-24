@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xmlns:dubbo="http://code.alibabatech.com/schema/dubbo"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.2.xsd
+	http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.2.xsd
+	http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.2.xsd http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.2.xsd
+	http://code.alibabatech.com/schema/dubbo http://code.alibabatech.com/schema/dubbo/dubbo.xsd
+	http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-4.2.xsd">
+
+	<!-- 配置service扫描包 -->
+	<context:component-scan
+		base-package="com.huazai.b2c.aiyou.service" />
+
+	<!-- 加载配置文件配置 -->
+	<context:property-placeholder
+		location="classpath:/resource/*.properties" />
+
+	<!-- 使用Dubbo发布服务 -->
+	<!-- 提供方应用信息，用来计算依赖关系 -->
+	<dubbo:application name="aiyou-manager" />
+	<dubbo:registry protocol="zookeeper"
+		address="${single.zookeeper.baseUrl}" />
+	<!-- 使用dubbo协议在20880端口暴露服务 -->
+	<dubbo:protocol name="dubbo" port="20880" />
+
+	<bean id="tbDubboServiceImpl"
+		class="com.huazai.b2c.aiyou.service.impl.TbDubboServiceImpl" />
+	<bean id="tbItemServiceImpl"
+		class="com.huazai.b2c.aiyou.service.impl.TbItemServiceImpl" />
+	<!-- 声明需要暴露的服务端口 -->
+	<dubbo:service
+		interface="com.huazai.b2c.aiyou.service.TbDubboService"
+		ref="tbDubboServiceImpl" timeout="30000" />
+	<dubbo:service
+		interface="com.huazai.b2c.aiyou.service.TbItemService"
+		ref="tbItemServiceImpl" timeout="30000" />
+	<dubbo:service
+		interface="com.huazai.b2c.aiyou.service.TbItemDescService"
+		ref="tbItemDescServiceImpl" timeout="30000" />
+	<dubbo:service
+		interface="com.huazai.b2c.aiyou.service.TbItemCatService"
+		ref="tbItemCatServiceImpl" timeout="30000" />
+
+</beans>
