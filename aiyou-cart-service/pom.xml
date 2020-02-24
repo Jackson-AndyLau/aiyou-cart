@@ -22,6 +22,12 @@
 			<artifactId>aiyou-cart-pojo</artifactId>
 			<version>0.0.1-SNAPSHOT</version>
 		</dependency>
+		<!-- 引入 aiyou-cart-dao 依赖 -->
+		<dependency>
+			<groupId>com.huazai.b2c.aiyou</groupId>
+			<artifactId>aiyou-cart-dao</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
+		</dependency>
 		<!-- Spring 相关 -->
 		<dependency>
 			<groupId>org.springframework</groupId>
