@@ -55,7 +55,7 @@ public interface TbItemCartService
 	 *
 	 * @version : V1.0.0
 	 */
-	public List<TbItemCartVO> queryTbItemByUserId(Long userId);
+	public List<TbItemCartVO> queryTbItemCartByUserId(Long userId);
 
 	/**
 	 * 
@@ -68,11 +68,29 @@ public interface TbItemCartService
 	 * @createdTime 2017年06月18日
 	 * @param userId 用户Id
 	 * @param itemId 商品Id
-	 * @param num 商品数量
+	 * @param num    商品数量
 	 * @return
 	 * @return AiyouResultData
 	 *
 	 * @version : V1.0.0
 	 */
-	public AiyouResultData updateTbItemByUserIdAndItemId(Long userId, Long itemId, Integer num);
+	public AiyouResultData updateTbItemCartByUserIdAndItemId(Long userId, Long itemId, Integer num);
+
+	/**
+	 * 
+	 * @author HuaZai
+	 * @contact who.seek.me@java98k.vip
+	 * @title deleteTbItemCartByUserIdAndItemId
+	 *        <ul>
+	 * @description 根据用户Id和商品Id删除用户购物车商品
+	 *              </ul>
+	 * @createdTime 2017年06月18日
+	 * @param userId 用户Id
+	 * @param itemId 商品Id
+	 * @return
+	 * @return AiyouResultData
+	 *
+	 * @version : V1.0.0
+	 */
+	public AiyouResultData deleteTbItemCartByUserIdAndItemId(Long userId, Long itemId);
 }

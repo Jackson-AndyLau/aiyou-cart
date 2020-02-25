@@ -44,22 +44,29 @@ public class TbItemCartServiceImpl implements TbItemCartService
 	@Override
 	public AiyouResultData addTbItemCart(Long userId, TbItemCartVO tbItemVO, Integer num)
 	{
-		// 判断当前添加的商品是否已存在
-		TbItemCartVO resulTbItemCartVO = this.queryTbItemByUserIdAndItemId(userId, tbItemVO.getId());
-		if (StringUtils.isEmpty(resulTbItemCartVO))
+		try
 		{
-			// 如果商品不存在，则添加购物车
-			String image = tbItemVO.getImage();
-			tbItemVO.setImage(image.split(",")[0]);
-			tbItemVO.setNum(num);
-			tbJedisClientService.hset(TB_ITEM_CART_PREFIX_KEY + ":" + userId, String.valueOf(tbItemVO.getId()),
-					JsonUtils.objectToJson(tbItemVO));
-		} else
+			// 判断当前添加的商品是否已存在
+			TbItemCartVO resulTbItemCartVO = this.queryTbItemByUserIdAndItemId(userId, tbItemVO.getId());
+			if (StringUtils.isEmpty(resulTbItemCartVO))
+			{
+				// 如果商品不存在，则添加购物车
+				String image = tbItemVO.getImage();
+				tbItemVO.setImage(image.split(",")[0]);
+				tbItemVO.setNum(num);
+				tbJedisClientService.hset(TB_ITEM_CART_PREFIX_KEY + ":" + userId, String.valueOf(tbItemVO.getId()),
+						JsonUtils.objectToJson(tbItemVO));
+			} else
+			{
+				// 如果商品存在，则直接新增商品数量
+				tbItemVO.setNum(resulTbItemCartVO.getNum() + num);
+				tbJedisClientService.hset(TB_ITEM_CART_PREFIX_KEY + ":" + userId, String.valueOf(tbItemVO.getId()),
+						JsonUtils.objectToJson(resulTbItemCartVO));
+			}
+
+		} catch (Exception e)
 		{
-			// 如果商品存在，则直接新增商品数量
-			tbItemVO.setNum(resulTbItemCartVO.getNum() + num);
-			tbJedisClientService.hset(TB_ITEM_CART_PREFIX_KEY + ":" + userId, String.valueOf(tbItemVO.getId()),
-					JsonUtils.objectToJson(resulTbItemCartVO));
+			e.printStackTrace();
 		}
 		return AiyouResultData.ok();
 	}
@@ -80,7 +87,7 @@ public class TbItemCartServiceImpl implements TbItemCartService
 	 *
 	 * @version : V1.0.0
 	 */
-	private TbItemCartVO queryTbItemByUserIdAndItemId(Long userId, Long itemId)
+	private TbItemCartVO queryTbItemByUserIdAndItemId(Long userId, Long itemId) throws Exception
 	{
 		// 查询用户商品信息
 		String resultData = tbJedisClientService.hget(TB_ITEM_CART_PREFIX_KEY + ":" + userId, String.valueOf(itemId));
@@ -96,37 +103,63 @@ public class TbItemCartServiceImpl implements TbItemCartService
 	}
 
 	@Override
-	public List<TbItemCartVO> queryTbItemByUserId(Long userId)
+	public List<TbItemCartVO> queryTbItemCartByUserId(Long userId)
 	{
-		// 查询用户购物车商品
-		Map<String, String> resultMap = tbJedisClientService.hgetAll(TB_ITEM_CART_PREFIX_KEY + ":" + userId);
-		Set<Entry<String, String>> resultSet = resultMap.entrySet();
-		if (!CollectionUtils.isEmpty(resultSet))
+		try
 		{
-			// 转换购物车商品集合
-			List<TbItemCartVO> tbItemCartVOs = new ArrayList<TbItemCartVO>();
-			for (Entry<String, String> entry : resultSet)
+			// 查询用户购物车商品
+			Map<String, String> resultMap = tbJedisClientService.hgetAll(TB_ITEM_CART_PREFIX_KEY + ":" + userId);
+			Set<Entry<String, String>> resultSet = resultMap.entrySet();
+			if (!CollectionUtils.isEmpty(resultSet))
 			{
-				TbItemCartVO tbItemCartVO = JsonUtils.jsonToPojo(entry.getValue(), TbItemCartVO.class);
-				tbItemCartVOs.add(tbItemCartVO);
+				// 转换购物车商品集合
+				List<TbItemCartVO> tbItemCartVOs = new ArrayList<TbItemCartVO>();
+				for (Entry<String, String> entry : resultSet)
+				{
+					TbItemCartVO tbItemCartVO = JsonUtils.jsonToPojo(entry.getValue(), TbItemCartVO.class);
+					tbItemCartVOs.add(tbItemCartVO);
+				}
+				return tbItemCartVOs;
 			}
-			return tbItemCartVOs;
+
+		} catch (Exception e)
+		{
+			e.printStackTrace();
 		}
 		return null;
 	}
 
 	@Override
-	public AiyouResultData updateTbItemByUserIdAndItemId(Long userId, Long itemId, Integer num)
+	public AiyouResultData updateTbItemCartByUserIdAndItemId(Long userId, Long itemId, Integer num)
 	{
-		// 根据用户用户Id和商品Id获取商品信息
-		TbItemCartVO tbItemCartVO = this.queryTbItemByUserIdAndItemId(userId, itemId);
-		//
-		if (!StringUtils.isEmpty(tbItemCartVO))
+		try
 		{
-			// 如果商品存在，则直接修改商品数量
-			tbItemCartVO.setNum(num);
-			tbJedisClientService.hset(TB_ITEM_CART_PREFIX_KEY + ":" + userId, String.valueOf(tbItemCartVO.getId()),
-					JsonUtils.objectToJson(tbItemCartVO));
+			// 根据用户用户Id和商品Id获取商品信息
+			TbItemCartVO tbItemCartVO = this.queryTbItemByUserIdAndItemId(userId, itemId);
+
+			if (!StringUtils.isEmpty(tbItemCartVO))
+			{
+				// 如果商品存在，则直接修改商品数量
+				tbItemCartVO.setNum(num);
+				tbJedisClientService.hset(TB_ITEM_CART_PREFIX_KEY + ":" + userId, String.valueOf(tbItemCartVO.getId()),
+						JsonUtils.objectToJson(tbItemCartVO));
+			}
+		} catch (Exception e)
+		{
+			e.printStackTrace();
+		}
+		return AiyouResultData.ok();
+	}
+
+	@Override
+	public AiyouResultData deleteTbItemCartByUserIdAndItemId(Long userId, Long itemId)
+	{
+		try
+		{
+			tbJedisClientService.hdel(TB_ITEM_CART_PREFIX_KEY + ":" + userId, String.valueOf(itemId));
+		} catch (Exception e)
+		{
+			e.printStackTrace();
 		}
 		return AiyouResultData.ok();
 	}
