@@ -1,5 +1,7 @@
 package com.huazai.b2c.aiyou.service.impl;
 
+import java.util.Map;
+
 import org.springframework.beans.factory.annotation.Autowired;
 
 import com.huazai.b2c.aiyou.service.TbJedisClientService;
@@ -86,6 +88,13 @@ public class TbJedisClusterServiceImpl implements TbJedisClientService
 	{
 		Long result = jedisCluster.hdel(key, field);
 		return result;
+	}
+
+	@Override
+	public Map<String, String> hgetAll(String key)
+	{
+		Map<String, String> resultMap = jedisCluster.hgetAll(key);
+		return resultMap;
 	}
 
 }

@@ -1,5 +1,7 @@
 package com.huazai.b2c.aiyou.service;
 
+import java.util.Map;
+
 /**
  * 
  * @author HuaZai
@@ -174,4 +176,21 @@ public interface TbJedisClientService
 	 * @version : V1.0.0
 	 */
 	Long hdel(String key, String... field);
+
+	/**
+	 * 
+	 * @author HuaZai
+	 * @contact who.seek.me@java98k.vip
+	 * @title hgetAll
+	 *        <ul>
+	 * @description 获取所有Hash值
+	 *              </ul>
+	 * @createdTime 2017年06月18日
+	 * @param key
+	 * @return
+	 * @return Map<String,String>
+	 *
+	 * @version : V1.0.0
+	 */
+	Map<String, String> hgetAll(String key);
 }

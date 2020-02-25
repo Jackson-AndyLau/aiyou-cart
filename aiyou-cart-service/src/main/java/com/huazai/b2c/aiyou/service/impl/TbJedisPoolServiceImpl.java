@@ -1,5 +1,7 @@
 package com.huazai.b2c.aiyou.service.impl;
 
+import java.util.Map;
+
 import javax.annotation.Resource;
 
 import com.huazai.b2c.aiyou.service.TbJedisClientService;
@@ -181,7 +183,38 @@ public class TbJedisPoolServiceImpl implements TbJedisClientService
 	@Override
 	public Long hdel(String key, String... field)
 	{
-		// TODO Auto-generated method stub
+		Jedis jedis = null;
+		try
+		{
+			jedis = jedisPool.getResource();
+			Long result = jedis.hdel(key, field);
+			return result;
+		} catch (Exception e)
+		{
+			e.printStackTrace();
+		} finally
+		{
+			jedis.close();
+		}
+		return null;
+	}
+
+	@Override
+	public Map<String, String> hgetAll(String key)
+	{
+		Jedis jedis = null;
+		try
+		{
+			jedis = jedisPool.getResource();
+			Map<String, String> resultMap = jedis.hgetAll(key);
+			return resultMap;
+		} catch (Exception e)
+		{
+			e.printStackTrace();
+		} finally
+		{
+			jedis.close();
+		}
 		return null;
 	}
 
