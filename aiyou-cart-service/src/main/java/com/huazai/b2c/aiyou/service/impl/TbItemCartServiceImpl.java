@@ -96,7 +96,7 @@ public class TbItemCartServiceImpl implements TbItemCartService
 	}
 
 	@Override
-	public List<TbItemCartVO> queryTbItemByUserIdAndItemId(Long userId)
+	public List<TbItemCartVO> queryTbItemByUserId(Long userId)
 	{
 		// 查询用户购物车商品
 		Map<String, String> resultMap = tbJedisClientService.hgetAll(TB_ITEM_CART_PREFIX_KEY + ":" + userId);
@@ -113,6 +113,22 @@ public class TbItemCartServiceImpl implements TbItemCartService
 			return tbItemCartVOs;
 		}
 		return null;
+	}
+
+	@Override
+	public AiyouResultData updateTbItemByUserIdAndItemId(Long userId, Long itemId, Integer num)
+	{
+		// 根据用户用户Id和商品Id获取商品信息
+		TbItemCartVO tbItemCartVO = this.queryTbItemByUserIdAndItemId(userId, itemId);
+		//
+		if (!StringUtils.isEmpty(tbItemCartVO))
+		{
+			// 如果商品存在，则直接修改商品数量
+			tbItemCartVO.setNum(num);
+			tbJedisClientService.hset(TB_ITEM_CART_PREFIX_KEY + ":" + userId, String.valueOf(tbItemCartVO.getId()),
+					JsonUtils.objectToJson(tbItemCartVO));
+		}
+		return AiyouResultData.ok();
 	}
 
 }

@@ -55,5 +55,24 @@ public interface TbItemCartService
 	 *
 	 * @version : V1.0.0
 	 */
-	public List<TbItemCartVO> queryTbItemByUserIdAndItemId(Long userId);
+	public List<TbItemCartVO> queryTbItemByUserId(Long userId);
+
+	/**
+	 * 
+	 * @author HuaZai
+	 * @contact who.seek.me@java98k.vip
+	 * @title updateTbItemByUserIdAndItemId
+	 *        <ul>
+	 * @description 根据用户Id和商品Id修改购物商品数量
+	 *              </ul>
+	 * @createdTime 2017年06月18日
+	 * @param userId 用户Id
+	 * @param itemId 商品Id
+	 * @param num 商品数量
+	 * @return
+	 * @return AiyouResultData
+	 *
+	 * @version : V1.0.0
+	 */
+	public AiyouResultData updateTbItemByUserIdAndItemId(Long userId, Long itemId, Integer num);
 }
