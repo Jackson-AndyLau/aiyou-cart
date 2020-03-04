@@ -1,4 +1,4 @@
-package com.huazai.b2c.aiyou.service.impl;
+package com.huazai.aiyou.cart.service.impl;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -12,11 +12,11 @@ import org.springframework.stereotype.Service;
 import org.springframework.util.CollectionUtils;
 import org.springframework.util.StringUtils;
 
-import com.huazai.b2c.aiyou.repo.AiyouResultData;
-import com.huazai.b2c.aiyou.service.TbItemCartService;
-import com.huazai.b2c.aiyou.service.TbJedisClientService;
-import com.huazai.b2c.aiyou.utils.JsonUtils;
-import com.huazai.b2c.aiyou.vo.TbItemCartVO;
+import com.huazai.aiyou.cart.service.TbItemCartService;
+import com.huazai.aiyou.cart.service.TbJedisClientService;
+import com.huazai.aiyou.common.response.AiyouResultData;
+import com.huazai.aiyou.common.utils.JsonUtils;
+import com.huazai.aiyou.common.vo.TbItemCartVO;
 
 /**
  * 

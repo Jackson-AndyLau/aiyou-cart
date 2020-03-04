@@ -1,4 +1,4 @@
-package com.huazai.b2c.aiyou.pojo;
+package com.huazai.aiyou.cart.pojo;
 
 import java.io.Serializable;
 import java.util.Date;

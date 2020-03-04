@@ -1,4 +1,4 @@
-package com.huazai.b2c.aiyou.service;
+package com.huazai.aiyou.cart.service;
 
 import java.util.Map;
 

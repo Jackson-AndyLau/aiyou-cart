@@ -1,10 +1,10 @@
-package com.huazai.b2c.aiyou.service.impl;
+package com.huazai.aiyou.cart.service.impl;
 
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
-import com.huazai.b2c.aiyou.service.TbJedisClientService;
+import com.huazai.aiyou.cart.service.TbJedisClientService;
 
 import redis.clients.jedis.JedisCluster;
 

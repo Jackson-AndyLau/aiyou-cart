@@ -16,7 +16,7 @@
 
 	<!-- 配置service扫描包 -->
 	<context:component-scan
-		base-package="com.huazai.b2c.aiyou.service" />
+		base-package="com.huazai.aiyou.cart.service" />
 
 	<!-- 加载配置文件配置 -->
 	<context:property-placeholder
@@ -32,7 +32,7 @@
 
 	<!-- 声明需要暴露的服务端口 -->
 <!-- 	<dubbo:service
-		interface="com.huazai.b2c.aiyou.service.TbDubboService"
+		interface="com.huazai.aiyou.cart.service.TbDubboService"
 		ref="tbDubboServiceImpl" timeout="30000" /> -->
 
 </beans>

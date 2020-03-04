@@ -17,7 +17,7 @@
 		<constructor-arg name="port" value="${redis.single.port}" />
 	</bean>
 	<bean id="tbJedisPoolServiceImpl"
-		class="com.huazai.b2c.aiyou.service.impl.TbJedisPoolServiceImpl" />
+		class="com.huazai.aiyou.cart.service.impl.TbJedisPoolServiceImpl" />
 
 	<!-- 配置Jedis集群版连接（注意：单机版和集群版不能共存） -->
 	<!-- <bean id="jedisCluster" class="redis.clients.jedis.JedisCluster">
@@ -57,7 +57,7 @@
 		</constructor-arg>
 	</bean>
 	<bean id="tbJedisClusterServiceImpl"
-		class="com.huazai.b2c.aiyou.service.impl.TbJedisClusterServiceImpl" /> -->
+		class="com.huazai.aiyou.cart.service.impl.TbJedisClusterServiceImpl" /> -->
 		
 		
 </beans>

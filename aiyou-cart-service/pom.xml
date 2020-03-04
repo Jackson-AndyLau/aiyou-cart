@@ -3,7 +3,7 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<parent>
-		<groupId>com.huazai.b2c.aiyou</groupId>
+		<groupId>com.huazai.aiyou.cart</groupId>
 		<artifactId>aiyou-cart</artifactId>
 		<version>0.0.1-SNAPSHOT</version>
 	</parent>
@@ -12,19 +12,19 @@
 	<dependencies>
 		<!-- 引入 aiyou-cart-interface 依赖 -->
 		<dependency>
-			<groupId>com.huazai.b2c.aiyou</groupId>
+			<groupId>com.huazai.aiyou.cart</groupId>
 			<artifactId>aiyou-cart-interface</artifactId>
 			<version>0.0.1-SNAPSHOT</version>
 		</dependency>
 		<!-- 引入 aiyou-cart-pojo 依赖 -->
 		<dependency>
-			<groupId>com.huazai.b2c.aiyou</groupId>
+			<groupId>com.huazai.aiyou.cart</groupId>
 			<artifactId>aiyou-cart-pojo</artifactId>
 			<version>0.0.1-SNAPSHOT</version>
 		</dependency>
 		<!-- 引入 aiyou-cart-dao 依赖 -->
 		<dependency>
-			<groupId>com.huazai.b2c.aiyou</groupId>
+			<groupId>com.huazai.aiyou.cart</groupId>
 			<artifactId>aiyou-cart-dao</artifactId>
 			<version>0.0.1-SNAPSHOT</version>
 		</dependency>

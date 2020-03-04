@@ -30,6 +30,6 @@
 	<!-- 配置切面 -->
 	<aop:config>
 		<aop:advisor advice-ref="txAdvice"
-			pointcut="execution(* com.huazai.b2c.aiyou.service.*.*(..))" />
+			pointcut="execution(* com.huazai.aiyou.cart.service.*.*(..))" />
 	</aop:config>
 </beans>

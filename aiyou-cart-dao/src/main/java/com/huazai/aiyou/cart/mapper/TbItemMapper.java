@@ -1,9 +1,10 @@
-package com.huazai.b2c.aiyou.mapper;
+package com.huazai.aiyou.cart.mapper;
 
-import com.huazai.b2c.aiyou.pojo.TbItem;
-import com.huazai.b2c.aiyou.pojo.TbItemExample;
 import java.util.List;
 import org.apache.ibatis.annotations.Param;
+
+import com.huazai.aiyou.cart.pojo.TbItem;
+import com.huazai.aiyou.cart.pojo.TbItemExample;
 
 /**
  * 

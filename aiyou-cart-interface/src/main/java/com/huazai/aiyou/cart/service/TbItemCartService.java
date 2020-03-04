@@ -1,9 +1,10 @@
-package com.huazai.b2c.aiyou.service;
+package com.huazai.aiyou.cart.service;
 
 import java.util.List;
 
-import com.huazai.b2c.aiyou.repo.AiyouResultData;
-import com.huazai.b2c.aiyou.vo.TbItemCartVO;
+import com.huazai.aiyou.common.response.AiyouResultData;
+import com.huazai.aiyou.common.vo.TbItemCartVO;
+
 
 /**
  * 
