@@ -31,8 +31,8 @@
 	<dubbo:protocol name="dubbo" port="20884" />
 
 	<!-- 声明需要暴露的服务端口 -->
-<!-- 	<dubbo:service
-		interface="com.huazai.aiyou.cart.service.TbDubboService"
-		ref="tbDubboServiceImpl" timeout="30000" /> -->
+	<dubbo:service
+		interface="com.huazai.aiyou.cart.service.TbItemCartService"
+		ref="tbItemCartServiceImpl" timeout="30000" />
 
 </beans>
