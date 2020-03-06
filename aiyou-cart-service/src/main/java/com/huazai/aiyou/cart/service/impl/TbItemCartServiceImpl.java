@@ -54,13 +54,13 @@ public class TbItemCartServiceImpl implements TbItemCartService
 				String image = tbItemVO.getImage();
 				tbItemVO.setImage(image.split(",")[0]);
 				tbItemVO.setNum(num);
-				tbJedisClientService.hset(TB_ITEM_CART_PREFIX_KEY + ":" + userId, String.valueOf(tbItemVO.getId()),
+				tbJedisClientService.hset(AIYOU_TB_ITEM_CART_PREFIX_KEY + ":" + userId, String.valueOf(tbItemVO.getId()),
 						JsonUtils.objectToJson(tbItemVO));
 			} else
 			{
 				// 如果商品存在，则直接新增商品数量
 				tbItemVO.setNum(resulTbItemCartVO.getNum() + num);
-				tbJedisClientService.hset(TB_ITEM_CART_PREFIX_KEY + ":" + userId, String.valueOf(tbItemVO.getId()),
+				tbJedisClientService.hset(AIYOU_TB_ITEM_CART_PREFIX_KEY + ":" + userId, String.valueOf(tbItemVO.getId()),
 						JsonUtils.objectToJson(resulTbItemCartVO));
 			}
 
@@ -90,7 +90,7 @@ public class TbItemCartServiceImpl implements TbItemCartService
 	private TbItemCartVO queryTbItemByUserIdAndItemId(Long userId, Long itemId) throws Exception
 	{
 		// 查询用户商品信息
-		String resultData = tbJedisClientService.hget(TB_ITEM_CART_PREFIX_KEY + ":" + userId, String.valueOf(itemId));
+		String resultData = tbJedisClientService.hget(AIYOU_TB_ITEM_CART_PREFIX_KEY + ":" + userId, String.valueOf(itemId));
 		if (!StringUtils.isEmpty(resultData))
 		{
 			// 转换商品视图对象
@@ -108,7 +108,7 @@ public class TbItemCartServiceImpl implements TbItemCartService
 		try
 		{
 			// 查询用户购物车商品
-			Map<String, String> resultMap = tbJedisClientService.hgetAll(TB_ITEM_CART_PREFIX_KEY + ":" + userId);
+			Map<String, String> resultMap = tbJedisClientService.hgetAll(AIYOU_TB_ITEM_CART_PREFIX_KEY + ":" + userId);
 			Set<Entry<String, String>> resultSet = resultMap.entrySet();
 			if (!CollectionUtils.isEmpty(resultSet))
 			{
@@ -141,7 +141,7 @@ public class TbItemCartServiceImpl implements TbItemCartService
 			{
 				// 如果商品存在，则直接修改商品数量
 				tbItemCartVO.setNum(num);
-				tbJedisClientService.hset(TB_ITEM_CART_PREFIX_KEY + ":" + userId, String.valueOf(tbItemCartVO.getId()),
+				tbJedisClientService.hset(AIYOU_TB_ITEM_CART_PREFIX_KEY + ":" + userId, String.valueOf(tbItemCartVO.getId()),
 						JsonUtils.objectToJson(tbItemCartVO));
 			}
 		} catch (Exception e)
@@ -156,7 +156,7 @@ public class TbItemCartServiceImpl implements TbItemCartService
 	{
 		try
 		{
-			tbJedisClientService.hdel(TB_ITEM_CART_PREFIX_KEY + ":" + userId, String.valueOf(itemId));
+			tbJedisClientService.hdel(AIYOU_TB_ITEM_CART_PREFIX_KEY + ":" + userId, String.valueOf(itemId));
 		} catch (Exception e)
 		{
 			e.printStackTrace();
