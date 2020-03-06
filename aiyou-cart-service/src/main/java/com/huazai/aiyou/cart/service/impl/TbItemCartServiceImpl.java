@@ -38,8 +38,8 @@ public class TbItemCartServiceImpl implements TbItemCartService
 	@Autowired
 	private TbJedisClientService tbJedisClientService;
 
-	@Value(value = "${TB_ITEM_CART_PREFIX_KEY}")
-	private String TB_ITEM_CART_PREFIX_KEY;
+	@Value(value = "${AIYOU_TB_ITEM_CART_PREFIX_KEY}")
+	private String AIYOU_TB_ITEM_CART_PREFIX_KEY;
 
 	@Override
 	public AiyouResultData addTbItemCart(Long userId, TbItemCartVO tbItemVO, Integer num)
