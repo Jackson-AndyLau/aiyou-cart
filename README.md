@@ -2,15 +2,15 @@
 # B2C哎呦商城购物车后台服务系统
 
 ## 目录
-- [前言](https://github.com/Jackson-AndyLau/aiyou-sso#%E5%89%8D%E8%A8%80)
-- [一、项目总体架构](https://github.com/Jackson-AndyLau/aiyou-sso#%E4%B8%80%E9%A1%B9%E7%9B%AE%E6%80%BB%E4%BD%93%E6%9E%B6%E6%9E%84)
-- [二、系统软硬件设施总体规划](https://github.com/Jackson-AndyLau/aiyou-sso#%E4%BA%8C%E7%B3%BB%E7%BB%9F%E8%BD%AF%E7%A1%AC%E4%BB%B6%E8%AE%BE%E6%96%BD%E6%80%BB%E4%BD%93%E8%A7%84%E5%88%92)
-- [三、项目数据库创建](https://github.com/Jackson-AndyLau/aiyou-sso#%E4%B8%89%E9%A1%B9%E7%9B%AE%E6%95%B0%E6%8D%AE%E5%BA%93%E5%88%9B%E5%BB%BA)
-- [四、项目拉取](https://github.com/Jackson-AndyLau/aiyou-sso#%E5%9B%9B%E9%A1%B9%E7%9B%AE%E6%8B%89%E5%8F%96)
-- [五、应用服务启动](https://github.com/Jackson-AndyLau/aiyou-sso#%E4%BA%94%E5%BA%94%E7%94%A8%E6%9C%8D%E5%8A%A1%E5%90%AF%E5%8A%A8)
-- [六、B2C商城示例代码演示](https://github.com/Jackson-AndyLau/aiyou-sso#%E5%85%ADb2c%E5%95%86%E5%9F%8E%E7%A4%BA%E4%BE%8B%E4%BB%A3%E7%A0%81%E6%BC%94%E7%A4%BA)
-- [七、项目效果图展示](https://github.com/Jackson-AndyLau/aiyou-sso#%E4%B8%83%E9%A1%B9%E7%9B%AE%E6%95%88%E6%9E%9C%E5%9B%BE%E5%B1%95%E7%A4%BA)
-- [八、结束语](https://github.com/Jackson-AndyLau/aiyou-sso#%E5%85%AB%E7%BB%93%E6%9D%9F%E8%AF%AD)
+- [前言](https://github.com/Jackson-AndyLau/aiyou-cart#%E5%89%8D%E8%A8%80)
+- [一、项目总体架构](https://github.com/Jackson-AndyLau/aiyou-cart#%E4%B8%80%E9%A1%B9%E7%9B%AE%E6%80%BB%E4%BD%93%E6%9E%B6%E6%9E%84)
+- [二、系统软硬件设施总体规划](https://github.com/Jackson-AndyLau/aiyou-cart#%E4%BA%8C%E7%B3%BB%E7%BB%9F%E8%BD%AF%E7%A1%AC%E4%BB%B6%E8%AE%BE%E6%96%BD%E6%80%BB%E4%BD%93%E8%A7%84%E5%88%92)
+- [三、项目数据库创建](https://github.com/Jackson-AndyLau/aiyou-cart#%E4%B8%89%E9%A1%B9%E7%9B%AE%E6%95%B0%E6%8D%AE%E5%BA%93%E5%88%9B%E5%BB%BA)
+- [四、项目拉取](https://github.com/Jackson-AndyLau/aiyou-cart#%E5%9B%9B%E9%A1%B9%E7%9B%AE%E6%8B%89%E5%8F%96)
+- [五、应用服务启动](https://github.com/Jackson-AndyLau/aiyou-cart#%E4%BA%94%E5%BA%94%E7%94%A8%E6%9C%8D%E5%8A%A1%E5%90%AF%E5%8A%A8)
+- [六、B2C商城示例代码演示](https://github.com/Jackson-AndyLau/aiyou-cart#%E5%85%ADb2c%E5%95%86%E5%9F%8E%E7%A4%BA%E4%BE%8B%E4%BB%A3%E7%A0%81%E6%BC%94%E7%A4%BA)
+- [七、项目效果图展示](https://github.com/Jackson-AndyLau/aiyou-cart#%E4%B8%83%E9%A1%B9%E7%9B%AE%E6%95%88%E6%9E%9C%E5%9B%BE%E5%B1%95%E7%A4%BA)
+- [八、结束语](https://github.com/Jackson-AndyLau/aiyou-cart#%E5%85%AB%E7%BB%93%E6%9D%9F%E8%AF%AD)
 
 ## 前言
 这个类似于电商的项目为什么说是B2C项目，是个人取的，何为电商，全称为电子商务，是指在互联网（Internet）、内部网（Intranet）和增值网（VAN，Value Added Network）上以电子交易方式进行交易活动和相关服务活动，是传统商业活动各环节的电子化、网络化。
@@ -1063,5 +1063,5 @@ AIYOU_TB_SERVICE_ITEM_INFO_KEY
 <br>
 **《 [CSDN -> B2C商城项目源码说明，基于Java开发的高可用分布式B2C商城系统](https://blog.csdn.net/Hello_World_QWP/article/details/106919419) 》**
 
-[>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>回到顶部<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<](https://github.com/Jackson-AndyLau/aiyou-sso#aiyou-sso)
+[>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>回到顶部<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<](https://github.com/Jackson-AndyLau/aiyou-cart#aiyou-cart)
 
